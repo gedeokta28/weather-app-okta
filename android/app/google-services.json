@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "681758436355",
+    "project_id": "weather-app-okta",
+    "storage_bucket": "weather-app-okta.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:681758436355:android:bb9cb5774604501419f236",
+        "android_client_info": {
+          "package_name": "com.example.weatherAppOkta"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWyg80fh07CMuFeozBBQGh_PKlsMwEdxs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

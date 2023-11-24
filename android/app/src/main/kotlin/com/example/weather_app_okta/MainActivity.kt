@@ -1,4 +1,4 @@
-package com.example.weather_app_okta
+package com.example.weatherAppOkta
 
 import io.flutter.embedding.android.FlutterActivity
 
