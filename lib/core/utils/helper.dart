@@ -1,7 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
+import 'package:intl/intl.dart';
+import 'package:weather_app_okta/core/errors/failures.dart';
 import 'package:weather_app_okta/core/static/dimens.dart';
+import 'package:weather_app_okta/core/utils/injection.dart';
 
 logMe(Object? obj, {String tag = 'log'}) {
   /* 
@@ -11,6 +14,9 @@ logMe(Object? obj, {String tag = 'log'}) {
     print('$tag :$obj');
   }
 }
+
+BuildContext get globalContext =>
+    locator<GlobalKey<NavigatorState>>().currentContext!;
 
 Widget mediumHorizontalSpacing() => const SizedBox(width: sizeMedium);
 
@@ -31,4 +37,26 @@ showLoading() {
 
 dismissLoading() {
   SmartDialog.dismiss();
+}
+
+String getErrorMessage(Failure failure) {
+  switch (failure.runtimeType) {
+    case ConnectionFailure:
+      return 'Error Connection';
+    case ServerFailure:
+      return 'Server Error';
+    default:
+      return 'Unexpected Error';
+  }
+}
+
+String getImageIcon(String value) {
+  String result = "https://openweathermap.org/img/wn/$value@2x.png";
+  return result;
+}
+
+String getTimestamp(int value) {
+  var dt = DateTime.fromMillisecondsSinceEpoch(value * 1000);
+  var result = DateFormat('EEEE, MMM d, yyyy HH:mm a').format(dt);
+  return result;
 }

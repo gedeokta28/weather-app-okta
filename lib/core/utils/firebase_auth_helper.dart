@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:weather_app_okta/core/utils/helper.dart';
+import 'package:weather_app_okta/weather/presentation/pages/weather_list_page.dart';
 
 class FirebaseAuthService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
@@ -29,6 +31,13 @@ class FirebaseAuthService {
       UserCredential credential = await _firebaseAuth
           .signInWithEmailAndPassword(email: email, password: password);
       Fluttertoast.showToast(msg: 'Login Succesfully');
+      if (globalContext.mounted) {
+        Navigator.pushNamedAndRemoveUntil(
+          globalContext,
+          WeatherListPage.routeName,
+          (route) => false,
+        );
+      }
       return credential.user;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found' ||

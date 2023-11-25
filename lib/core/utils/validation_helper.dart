@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app_okta/core/utils/helper.dart';
 
 enum TypeField { email, password, confirmationPassword }
 
