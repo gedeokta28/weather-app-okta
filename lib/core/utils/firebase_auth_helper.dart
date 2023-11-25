@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:weather_app_okta/core/utils/helper.dart';
 
 class FirebaseAuthService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
@@ -9,6 +10,8 @@ class FirebaseAuthService {
     try {
       UserCredential credential = await _firebaseAuth
           .createUserWithEmailAndPassword(email: email, password: password);
+      Fluttertoast.showToast(msg: 'Registration successful');
+
       return credential.user;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
@@ -25,6 +28,7 @@ class FirebaseAuthService {
     try {
       UserCredential credential = await _firebaseAuth
           .signInWithEmailAndPassword(email: email, password: password);
+      Fluttertoast.showToast(msg: 'Login Succesfully');
       return credential.user;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found' ||

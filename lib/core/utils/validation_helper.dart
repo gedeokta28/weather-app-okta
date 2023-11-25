@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app_okta/core/utils/helper.dart';
 
-enum TypeField {
-  email,
-  password,
-}
+enum TypeField { email, password, confirmationPassword }
 
 class ValidationHelper {
   final Function(bool value) isError;
   final TypeField typeField;
+  final String?
+      pwd; // this value for matching between 'confirmation password' with 'password'
 
-  ValidationHelper({required this.isError, required this.typeField});
+  ValidationHelper({
+    required this.isError,
+    required this.typeField,
+    this.pwd = '',
+  });
 
   FormFieldValidator validate() {
     String? message;
@@ -35,6 +39,19 @@ class ValidationHelper {
             if (strValue.length < 8) {
               message = 'Please set the password with 8 characters or more';
               isError(true);
+            }
+            break;
+          case TypeField.confirmationPassword:
+            if (strValue.length < 8) {
+              message = 'Please set the password with 8 characters or more';
+              isError(true);
+              break;
+            }
+            if (strValue != pwd) {
+              message = "Confirmation password doesn't match";
+              isError(true);
+            } else {
+              isError(false);
             }
             break;
           default:

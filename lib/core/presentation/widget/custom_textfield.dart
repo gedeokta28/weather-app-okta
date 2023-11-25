@@ -64,6 +64,17 @@ class _CustomTextFieldState extends State<CustomTextField> {
       keyboardType: widget.inputType,
       obscureText: _passwordVisible,
       validator: widget.fieldValidator,
+      onTap: () {
+        if (widget.refresh) {
+          widget.onTap!();
+        }
+      },
+      onChanged: (str) {
+        String value = str;
+        if (widget.onChanged != null) {
+          widget.onChanged!(value);
+        }
+      },
       decoration: InputDecoration(
         border: const OutlineInputBorder(),
         labelText: widget.labelText,

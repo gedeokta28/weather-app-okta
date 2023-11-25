@@ -3,27 +3,26 @@ import 'package:provider/provider.dart';
 import 'package:weather_app_okta/core/static/assets.dart';
 import 'package:weather_app_okta/core/static/colors.dart';
 import 'package:weather_app_okta/core/static/dimens.dart';
-import 'package:weather_app_okta/core/utils/app_settings.dart';
 import 'package:weather_app_okta/core/utils/helper.dart';
 import 'package:weather_app_okta/core/utils/injection.dart';
-import 'package:weather_app_okta/features/login/presentation/providers/login_providers.dart';
-import 'package:weather_app_okta/features/login/presentation/widget/login_form.dart';
-import 'package:weather_app_okta/features/register/presentation/pages/register_page.dart';
+import 'package:weather_app_okta/features/login/presentation/pages/login_page.dart';
+import 'package:weather_app_okta/features/register/presentation/providers/register_providers.dart';
+import 'package:weather_app_okta/features/register/presentation/widget/register_form.dart';
 
-class LoginPage extends StatefulWidget {
-  static const String routeName = '/login';
+class RegisterPage extends StatefulWidget {
+  static const String routeName = '/register';
 
-  const LoginPage({Key? key}) : super(key: key);
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => locator<LoginProvider>(),
+      create: (_) => locator<RegisterProvider>(),
       builder: (context, child) => Scaffold(
         body: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
@@ -32,18 +31,18 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               children: [
                 AspectRatio(
-                  aspectRatio: 2 / 1.7,
+                  aspectRatio: 2 / 1.4,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(
-                        assetLogin,
+                        assetProfile,
                         fit: BoxFit.cover,
                         width: 120,
                       ),
                       mediumVerticalSpacing(),
-                      const Text(appName,
+                      const Text('Register',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: sizeLarge,
@@ -51,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                 ),
-                const LoginForm()
+                const RegisterForm()
               ],
             ),
           ),
@@ -65,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  "Don't have an account?",
+                  "Already have an account?",
                   style: TextStyle(
                     fontSize: 15,
                     color: primaryColor,
@@ -76,12 +75,12 @@ class _LoginPageState extends State<LoginPage> {
                   onTap: () {
                     Navigator.pushNamedAndRemoveUntil(
                       context,
-                      RegisterPage.routeName,
+                      LoginPage.routeName,
                       (route) => false,
                     );
                   },
                   child: const Text(
-                    "Sign up.",
+                    "Log in.",
                     style: TextStyle(
                         fontSize: 16,
                         color: primaryColor,
