@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:weather_app_okta/core/static/colors.dart';
 import 'package:weather_app_okta/core/utils/helper.dart';
 import 'package:weather_app_okta/core/utils/styles.dart';
-import 'package:weather_app_okta/weather/data/models/weather_list_model.dart';
+import 'package:weather_app_okta/features/weather/data/models/weather_list_model.dart';
 
 class WeatherCard extends StatefulWidget {
   final WeatherElement data;
@@ -43,7 +43,12 @@ class _WeatherCardState extends State<WeatherCard> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          getTimestamp(widget.data.dt),
+                          getOnlyDate(widget.data.dt),
+                          style: textWhiteBold,
+                          maxLines: 2,
+                        ),
+                        Text(
+                          getOnlyTime(widget.data.dt),
                           style: textWhiteBold,
                           maxLines: 2,
                         ),

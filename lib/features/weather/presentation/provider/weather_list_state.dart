@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:weather_app_okta/core/errors/failures.dart';
-import 'package:weather_app_okta/weather/data/models/weather_list_model.dart';
+import 'package:weather_app_okta/features/weather/data/models/weather_list_model.dart';
 
 abstract class WeatherListState extends Equatable {
   final WeatherListModel? data;

@@ -4,7 +4,7 @@ import 'package:weather_app_okta/core/presentation/widget/custom_appbar.dart';
 import 'package:weather_app_okta/core/static/colors.dart';
 import 'package:weather_app_okta/core/utils/helper.dart';
 import 'package:weather_app_okta/core/utils/styles.dart';
-import 'package:weather_app_okta/weather/data/models/weather_list_model.dart';
+import 'package:weather_app_okta/features/weather/data/models/weather_list_model.dart';
 
 class WeatherDetailPagerguments {
   final WeatherListModel weatherData;

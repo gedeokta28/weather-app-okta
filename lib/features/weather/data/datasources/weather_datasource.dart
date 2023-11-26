@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:weather_app_okta/core/utils/helper.dart';
-import 'package:weather_app_okta/weather/data/models/weather_list_model.dart';
+import 'package:weather_app_okta/features/weather/data/models/weather_list_model.dart';
 
 abstract class WeatherDataSource {
   Future<WeatherListModel> getWeatherList(Position position);

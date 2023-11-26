@@ -2,9 +2,9 @@ import 'package:dartz/dartz.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:weather_app_okta/core/errors/failures.dart';
 import 'package:weather_app_okta/core/utils/helper.dart';
-import 'package:weather_app_okta/weather/data/models/weather_list_model.dart';
-import 'package:weather_app_okta/weather/domain/usecases/weather_usecase.dart';
-import 'package:weather_app_okta/weather/presentation/provider/weather_list_state.dart';
+import 'package:weather_app_okta/features/weather/data/models/weather_list_model.dart';
+import 'package:weather_app_okta/features/weather/domain/usecases/weather_usecase.dart';
+import 'package:weather_app_okta/features/weather/presentation/provider/weather_list_state.dart';
 import 'package:flutter/material.dart';
 
 class WeatherListProvider with ChangeNotifier {

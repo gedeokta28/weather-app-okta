@@ -7,11 +7,11 @@ import 'package:weather_app_okta/core/utils/helper.dart';
 import 'package:weather_app_okta/core/utils/injection.dart';
 import 'package:weather_app_okta/core/utils/styles.dart';
 import 'package:weather_app_okta/features/login/presentation/pages/login_page.dart';
-import 'package:weather_app_okta/weather/presentation/pages/weather_detail_page.dart';
-import 'package:weather_app_okta/weather/presentation/provider/weather_list_provider.dart';
-import 'package:weather_app_okta/weather/presentation/provider/weather_list_state.dart';
+import 'package:weather_app_okta/features/weather/presentation/pages/weather_detail_page.dart';
+import 'package:weather_app_okta/features/weather/presentation/provider/weather_list_provider.dart';
+import 'package:weather_app_okta/features/weather/presentation/provider/weather_list_state.dart';
 
-import 'package:weather_app_okta/weather/presentation/widget/weather_card.dart';
+import 'package:weather_app_okta/features/weather/presentation/widget/weather_card.dart';
 
 class WeatherListPage extends StatefulWidget {
   static const String routeName = '/weather-list';

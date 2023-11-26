@@ -6,7 +6,7 @@ import 'package:weather_app_okta/core/utils/injection.dart';
 import 'package:weather_app_okta/core/utils/location_helper.dart';
 import 'package:weather_app_okta/core/utils/themes.dart';
 import 'package:weather_app_okta/features/login/presentation/pages/login_page.dart';
-import 'package:weather_app_okta/weather/presentation/pages/weather_list_page.dart';
+import 'package:weather_app_okta/features/weather/presentation/pages/weather_list_page.dart';
 import 'core/route/route.dart' as router;
 
 class MainApp extends StatefulWidget {
