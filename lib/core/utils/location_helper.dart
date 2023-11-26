@@ -1,6 +1,5 @@
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:weather_app_okta/core/utils/helper.dart';
 
 class LocationHelper {
   static Future<bool> handleLocationPermission() async {
@@ -29,6 +28,4 @@ class LocationHelper {
     }
     return true;
   }
-
- 
 }

@@ -6,6 +6,7 @@ import 'package:weather_app_okta/core/static/colors.dart';
 import 'package:weather_app_okta/core/utils/helper.dart';
 import 'package:weather_app_okta/core/utils/injection.dart';
 import 'package:weather_app_okta/core/utils/styles.dart';
+import 'package:weather_app_okta/features/login/presentation/pages/login_page.dart';
 import 'package:weather_app_okta/weather/presentation/provider/weather_list_provider.dart';
 import 'package:weather_app_okta/weather/presentation/provider/weather_list_state.dart';
 
@@ -72,7 +73,17 @@ class _WeatherListPageState extends State<WeatherListPage> {
                     ),
                     iconSize: 30,
                     color: whiteColor,
-                    onPressed: () {},
+                    onPressed: () async {
+                      showLoading();
+                      await signOut().whenComplete(() {
+                        Navigator.pushNamedAndRemoveUntil(
+                          context,
+                          LoginPage.routeName,
+                          (route) => false,
+                        );
+                        dismissLoading();
+                      });
+                    },
                   ),
                 ],
                 titleColor: whiteColor,

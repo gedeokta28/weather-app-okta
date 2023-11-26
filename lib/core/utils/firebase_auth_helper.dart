@@ -13,7 +13,13 @@ class FirebaseAuthService {
       UserCredential credential = await _firebaseAuth
           .createUserWithEmailAndPassword(email: email, password: password);
       Fluttertoast.showToast(msg: 'Registration successful');
-
+      if (globalContext.mounted) {
+        Navigator.pushNamedAndRemoveUntil(
+          globalContext,
+          WeatherListPage.routeName,
+          (route) => false,
+        );
+      }
       return credential.user;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {

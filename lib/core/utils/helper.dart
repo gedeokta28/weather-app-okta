@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
@@ -59,4 +60,8 @@ String getTimestamp(int value) {
   var dt = DateTime.fromMillisecondsSinceEpoch(value * 1000);
   var result = DateFormat('EEEE, MMM d, yyyy HH:mm a').format(dt);
   return result;
+}
+
+Future<void> signOut() async {
+  await FirebaseAuth.instance.signOut();
 }
