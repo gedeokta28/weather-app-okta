@@ -1,16 +1,13 @@
-# weather_app_okta
+# Weather App by Okta
 
-A new Flutter project.
+This Project Use Flutter 3.10.6 Version
 
-## Getting Started
+# Getting Started
 
-This project is a starting point for a Flutter application.
+1. First open the downloaded project in preferred IDE.
+2. VS Code:
+Go to the "View" menu -> select "Terminal" from the dropdown.
+Run the command 'flutter pub get'.
+Now, enter the command flutter run. VS Code will build and run your app. You'll see the output in the terminal, and the app should launch in the selected emulator or physical device.
+3. Create account first to start this App and then please allow location.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
