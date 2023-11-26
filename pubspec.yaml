@@ -47,6 +47,7 @@ dependencies:
   fluttertoast: ^8.2.4
   geolocator: ^10.1.0
   intl: ^0.18.1
+  cached_network_image: ^3.3.0
 
 dev_dependencies:
   flutter_test:

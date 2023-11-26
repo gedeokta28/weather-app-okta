@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_app_okta/core/static/colors.dart';
 import 'package:weather_app_okta/core/utils/helper.dart';
@@ -30,50 +31,33 @@ class _WeatherCardState extends State<WeatherCard> {
               padding: const EdgeInsets.all(15),
               child: Row(
                 children: <Widget>[
-                  Image.network(
-                      height: 80, getImageIcon(widget.data.weather[0].icon)),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        getTimestamp(widget.data.dt),
-                        style: textWhiteBold,
-                      ),
-                      smallVerticalSpacing(),
-                      Text(
-                        widget.data.weather[0].main,
-                        style: textWhite,
-                      ),
-                      smallVerticalSpacing(),
-                      Text(
-                        '${widget.data.main.temp}°C',
-                        style: textTemp,
-                      ),
-                    ],
+                  CachedNetworkImage(
+                    imageUrl: getImageIcon(widget.data.weather[0].icon),
+                    placeholder: (context, url) => CircularProgressIndicator(),
+                    errorWidget: (context, url, error) => Icon(Icons.error),
                   ),
-                  // Expanded(
-                  //   child: Row(
-                  //     children: [
-                  //       SizedBox(
-                  //         width: 60,
-                  //         child: Text(
-                  //           widget.data.main.temp.toString(),
-                  //           style: textTemp,
-                  //         ),
-                  //       ),
-                  //       Expanded(
-                  //           child: Image.network(
-                  //               height: 60,
-                  //               getImageIcon(widget.data.weather[0].icon))),
-                  //     ],
-                  //   ),
-                  // ),
-                  // Expanded(
-                  //   child: Text(
-                  //     widget.data.main.temp.toString(),
-                  //     style: textTemp,
-                  //   ),
-                  // ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          getTimestamp(widget.data.dt),
+                          style: textWhiteBold,
+                          maxLines: 2,
+                        ),
+                        smallVerticalSpacing(),
+                        Text(
+                          widget.data.weather[0].main,
+                          style: textWhite,
+                        ),
+                        smallVerticalSpacing(),
+                        Text(
+                          '${widget.data.main.temp}°C',
+                          style: textTemp,
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),

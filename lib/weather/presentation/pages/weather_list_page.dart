@@ -31,8 +31,50 @@ class _WeatherListPageState extends State<WeatherListPage> {
           _provider.fetchData();
           return Scaffold(
               backgroundColor: primaryColor,
-              appBar: const CustomAppBar(
-                title: 'Weather App',
+              appBar: CustomAppBar(
+                widgetTitle: Row(
+                  children: <Widget>[
+                    Consumer<WeatherListProvider>(
+                        builder: (context, value, child) {
+                      final state = value.state;
+                      if (state is WeatherListFailed) {
+                        return const SizedBox.shrink();
+                      } else if (state is WeatherListLoaded) {
+                        return Row(
+                          children: [
+                            const Icon(
+                              Icons.location_on,
+                              color: whiteColor,
+                              size: 20,
+                            ),
+                            smallHorizontalSpacing(),
+                            Text(
+                              value.weatherList.city.name,
+                              style: textWhiteBold,
+                            )
+                          ],
+                        );
+                      }
+                      return const SizedBox.shrink();
+                    }),
+                  ],
+                ),
+                actions: [
+                  Center(
+                    child: Text(
+                      'Weather App',
+                      style: appBarStyle(whiteColor),
+                    ),
+                  ),
+                  IconButton(
+                    icon: const Icon(
+                      Icons.logout,
+                    ),
+                    iconSize: 30,
+                    color: whiteColor,
+                    onPressed: () {},
+                  ),
+                ],
                 titleColor: whiteColor,
                 backgroundColor: primaryColor,
               ),
