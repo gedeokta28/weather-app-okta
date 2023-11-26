@@ -7,6 +7,7 @@ import 'package:weather_app_okta/core/utils/helper.dart';
 import 'package:weather_app_okta/core/utils/injection.dart';
 import 'package:weather_app_okta/core/utils/styles.dart';
 import 'package:weather_app_okta/features/login/presentation/pages/login_page.dart';
+import 'package:weather_app_okta/weather/presentation/pages/weather_detail_page.dart';
 import 'package:weather_app_okta/weather/presentation/provider/weather_list_provider.dart';
 import 'package:weather_app_okta/weather/presentation/provider/weather_list_state.dart';
 
@@ -106,8 +107,17 @@ class _WeatherListPageState extends State<WeatherListPage> {
                           itemCount: value.weatherList.list.length,
                           padding: const EdgeInsets.only(top: 10.0),
                           itemBuilder: (context, index) {
-                            return WeatherCard(
-                                data: value.weatherList.list[index]);
+                            return InkWell(
+                              onTap: () {
+                                Navigator.pushNamed(
+                                    context, WeatherDetailPage.routeName,
+                                    arguments: WeatherDetailPagerguments(
+                                        weatherData: value.weatherList,
+                                        index: index));
+                              },
+                              child: WeatherCard(
+                                  data: value.weatherList.list[index]),
+                            );
                           });
                     }
                     return const Center(

@@ -62,6 +62,18 @@ String getTimestamp(int value) {
   return result;
 }
 
+String getOnlyDate(int value) {
+  var dt = DateTime.fromMillisecondsSinceEpoch(value * 1000);
+  var result = DateFormat('EEEE, MMM d, yyyy').format(dt);
+  return result;
+}
+
+String getOnlyTime(int value) {
+  var dt = DateTime.fromMillisecondsSinceEpoch(value * 1000);
+  var result = DateFormat('HH:mm a').format(dt);
+  return result;
+}
+
 Future<void> signOut() async {
   await FirebaseAuth.instance.signOut();
 }
